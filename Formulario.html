@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="estilo.css">
+    <script> src = "https://unpkg.com/boxicons@2.1.2/dist/boxicons.js" ></script>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <h1 class="titulo"><strong>FORMULARIO</strong></h1>
+    <div class="container">
+        <form action="form.php" method="post" name="f_form" class="formulario">
+            <div class="info">
+                <div class="box info-pessoais">
+                    <div class="linha">
+                        <label><b>Informações pessoais <b><label>
+                    </div>
+                    <div class="nome">
+                        <label for="nome"><b>Nome: <b></label>
+                        <input name="f_nome" id="nome" type="text" required placeholder="Insira seu nome completo">
+                    </div>
+                    <div class="cpf">
+                        <label for="cpf"><b>CPF: <b></label>
+                        <input name="f_cpf" id="cpf" type="text" maxlength="11" onblur="validarCPF(this)" required \
+                            placeholder="xxx.xxx.xxx-xx">
+                    </div>
+                    <div class="data">
+                        <label for="data">Nascimento: </label>
+                        <input name="f_data" id="data" type="date" required>
+                    </div>
+                    <div class="genero">
+                        <label for="genero"><b>Genero: </label>
+                        <select id="genero" required>
+                            <option value="">...</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="escolaridade">
+                        <label for="escola">Escolaridade: </label>
+                        <select id="escola" required>
+                            <option value="">...</option>
+                            <option value="fundamental">Ensino fundamental</option>
+                            <option value="medio">Ensino médio</option>
+                            <option value="superior">Ensino superior</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="box endereco">
+                    <div class="linha">
+                        <label><b>Endereço <b><label>
+                    </div>
+                    <div class="regiao">
+                        <label for="cidade">Cidade: </label>
+                        <input id="cidade" type="text" required placeholder="Insira sua cidade">
+                        <label for="estado">Estado: </label>
+                        <select id="estado" required>
+                            <option value="">...</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AM">AM</option>
+                            <option value="AP">AP</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MG">MG</option>
+                            <option value="MS">MS</option>
+                            <option value="MT">MT</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="PR">PR</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RO">RO</option>
+                            <option value="RS">RS</option>
+                            <option value="SC">SC</option>
+                            <option value="SE">SE</option>
+                            <option value="SP">SP</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                    <label for="setor">Setor: </label>
+                    <input name="f_setor" id="setor" type="text" required placeholder="Insira seu setor">
+                    <label for="complemento">Complemento: </label>
+                    <input name="f_complemento" id="complemento" type="text" required
+                        placeholder="Qd., Lt., nº e Apt.(opcional)">
+                </div>
+
+                <div class="box contatos">
+                    <div class="linha">
+                        <label><b>Contatos</b></label>
+                    </div>
+                    <div class="numero-1">
+                        <label for="num-1"><b>Seu Contato: <b></label>
+                        <input name="num-1" id="num" type="text"
+                            pattern="^1\d\d(\d\d)?$|^0800 ?\d{3} ?\d{4}$|^(\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d[ .-]?)?(9|9[ .-])?[2-9]\d{3}[ .-]?\d{4}$"
+                            required placeholder="Insira seu contato">
+                    </div>
+                    <div class="contato-1">
+                        <div><label id="cont-1">Contato 1:</label></div>
+                        <div class="nome-contato">
+                            <label for="nome-2"><b>Nome:</b></label>
+                            <input name="f_nome-2" id="nome-2" type="text" required
+                                placeholder="Insira o nome do contato">
+                        </div>
+                        <div class="numero-contato">
+                            <label for="num-2">Numero: </label>
+                            <input name="num-2" id="num-2"
+                                pattern="^1\d\d(\d\d)?$|^0800 ?\d{3} ?\d{4}$|^(\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d[ .-]?)?(9|9[ .-])?[2-9]\d{3}[ .-]?\d{4}$"
+                                type="text" required placeholder="Insira seu contato">
+                        </div>
+                        <div class="email-contato">
+                            <label for="email">Email: </label>
+                            <input name="f_email-2" id="email-2" type="email" required
+                                placeholder="Insira o email do contato">
+                        </div>
+                        <div id="div-referencia-pra-add-contatos"></div>
+                        <div class="botoes">
+                            <bottom type="bottom" id="add-contato">Adicionar contato</bottom>
+                            <bottom type="bottom" id="remove-contato">Remover contato</bottom>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box acesso">
+                    <div class="linha">
+                        <label><b>Acesso<b><label>
+                    </div>
+                    <div class="email">
+                        <label for="email"><b>Email: <b></label>
+                        <input name="f_email" id="email" type="email" required placeholder="Insira seu email">
+                    </div>
+                    <div class="senha">
+                        <label for="senha">Senha: </label>
+                        <input name="f_senha" id="senha" type="password" required placeholder="Escolha sua senha">
+                    </div>
+                    <input id="enviar" type="submit" value="Cadastrar">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="meujava.js"></script>
+</body>
