@@ -82,6 +82,7 @@
 	background: #ffffff;
 	background-color: rgba(0, 0, 0, 0.4);
 	border: 1px solid#333;
+	padding: 13px;
 	padding-bottom: 1px;
 	margin-right: 2rem;
 	margin-left: 2rem;
@@ -164,6 +165,7 @@
 	margin-top: 10px;
 	margin-bottom:10px;
 }
+
 #add-contato {
 	font-size: 15px;
 	border: 1px solid black;
@@ -175,6 +177,11 @@
 	margin-bottom: 2px;
 	cursor: pointer;
 }
+#add-contato:hover{
+	background-color: #333;
+	color: #ffffff ;
+	box-shadow: inset 0 0 1em rgb(151, 151, 149);
+}
 #remove-contato {
 	font-size: 15px;
 	border: 1px solid black;
@@ -185,6 +192,11 @@
 	width: 40%;
 	margin-bottom: 2px;
 	cursor: pointer;
+}
+#remove-contato:hover{
+	background-color: #333;
+	color: #ffffff ;
+	box-shadow: inset 0 0 1em rgb(151, 151, 149);
 }
 #cont-1{
 	font-weight: bold;
@@ -212,12 +224,38 @@
 	font-size: 17px;
 }
 #enviar {
+	background-color: #333;
+	color: #ffffff;
+	font-size: 17px;
+	font-family: sans-serif;
+	font-weight: bold;
 	margin-left: 90px;
 	margin-bottom: 3px;
 	margin-top: 5px;
 	cursor: pointer;
 }
+#enviar:hover{
+	background-color:white;
+	color: black;
+    box-shadow: inset 0 0 1em rgb(68, 68, 66);
+}
 
+#mostrar {
+	font-size: 15px;
+	border: 1px solid black;
+	background-color: white;
+	color: black;
+	border-radius: 5px;
+	padding: 3px;
+	width: 40%;
+	margin-bottom: 2px;
+	cursor: pointer;
+}
+#mostrar:hover{
+	background-color:white;
+	color: black;
+    box-shadow: inset 0 0 1em rgb(68, 68, 66);
+}
 #setor {
 	margin-right: 100px;
 }

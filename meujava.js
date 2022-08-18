@@ -73,15 +73,11 @@ function criarContato() {
     <input type="text" name="contato-nome${quantidadeDeContatos}" id="contato-nome" required />
     </div>
   <div class="contato-telefone-container flexbox">
-  <label for="contato-telefone" class="padding-left-1rem">Telefone</label
-    >
-    <input
-      type="tel" name="contato-telefone${quantidadeDeContatos}" id="num-contato" required/>
+  <label for="contato-telefone" class="padding-left-1rem">Telefone</label>
+    <input type="tel" name="contato-telefone${quantidadeDeContatos}" id="num-contato" required/>
   </div>
   <div class="contato-email-container flexbox">
-    <label for="contato-email" class="padding-left-1rem"
-      >E-mail</label
-    >
+    <label for="contato-email" class="padding-left-1rem">E-mail</label>
     <input type="email" name="contato-email${quantidadeDeContatos}" id="contato-email" required />
   </div>
   `;
@@ -112,10 +108,9 @@ removerContatoBtn.addEventListener("click", function () {
 
 
 const minimoContatos = document.getElementById("enviar");
-function minimo_contatos(){
+function minimo_contatos(x){
    if (quantidadeDeContatos<2){
       alert("Insira no minimo 2 contatos");
-      return false;
    }
    else{
       return true;
@@ -124,5 +119,16 @@ function minimo_contatos(){
 minimoContatos.addEventListener("click",function(){
    minimo_contatos()
 })
+ 
+// const dadosTabela= document.getElementById("mostrar");
+// function exibir() {
+//    let elementoFilho = document.querySelector("numero-contato").children        
+//     document.querySelector("#dados").innerHTML = `
+//        <h2>Dados: </h2>
+//         <p> O segundo elemento filho é: ${elementoFilho[1].tagName}
+//         <p> O conteúdo do segundo elemento filho é: ${elementoFilho[1].innerHTML}`
+// }
+// dadosTabela.addEventListener("click",function () {
+//    exibir();})
 
 
