@@ -107,18 +107,6 @@ removerContatoBtn.addEventListener("click", function () {
 })
 
 
-const minimoContatos = document.getElementById("enviar");
-function minimo_contatos(x){
-   if (quantidadeDeContatos<2){
-      alert("Insira no minimo 2 contatos");
-   }
-   else{
-      return true;
-   }
-}
-minimoContatos.addEventListener("click",function(){
-   minimo_contatos()
-})
  
 // const dadosTabela= document.getElementById("mostrar");
 // function exibir() {

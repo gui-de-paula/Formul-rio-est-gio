@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="estilo.css">
-    <!-- <script> src = "https://unpkg.com/boxicons@2.1.2/dist/boxicons.js" ></script> -->
+    <link rel="stylesheet" href="tabela-style.css">
     <meta charset="UTF-8">
     <title>Formulario</title>
 </head>
@@ -11,7 +11,7 @@
 <body>
     <h1 class="titulo"><strong>FORMULARIO</strong></h1>
     <div class="container">
-        <form action="form.php" method="post" name="f_form" class="formulario">
+        <form action="form.php" method="post" name="f_form" id="formulario">
             <div class="info">
                 <div class="box info-pessoais">
                     <div class="linha">
@@ -19,20 +19,20 @@
                     </div>
                     <div class="nome">
                         <label for="nome"><b>Nome: <b></label>
-                        <input name="f_nome" id="nome" type="text" required placeholder="Insira seu nome completo">
+                        <input name="nome" id="nome" type="text" required placeholder="Insira seu nome completo">
                     </div>
                     <div class="cpf">
                         <label for="cpf"><b>CPF: <b></label>
-                        <input name="f_cpf" id="cpf" type="text" maxlength="11" onblur="validarCPF(this)" required \
+                        <input name="cpf" id="cpf" type="text" maxlength="11" onblur="validarCPF(this)" required \
                             placeholder="xxx.xxx.xxx-xx">
                     </div>
                     <div class="data">
                         <label for="data">Nascimento: </label>
-                        <input name="f_data" id="data" type="date" required>
+                        <input name="data" id="data" type="date" required>
                     </div>
                     <div class="genero">
                         <label for="genero"><b>Genero: </label>
-                        <select id="genero" required>
+                        <select name="genero" id="genero" required>
                             <option value="">...</option>
                             <option value="masculino">Masculino</option>
                             <option value="feminino">Feminino</option>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="escolaridade">
                         <label for="escola">Escolaridade: </label>
-                        <select id="escola" required>
+                        <select name="escolaridade" id="escola" required>
                             <option value="">...</option>
                             <option value="fundamental">Ensino fundamental</option>
                             <option value="medio">Ensino médio</option>
@@ -56,9 +56,9 @@
                     </div>
                     <div class="regiao">
                         <label for="cidade">Cidade: </label>
-                        <input id="cidade" type="text" required placeholder="Insira sua cidade">
+                        <input name="cidade" id="cidade" type="text" required placeholder="Insira sua cidade">
                         <label for="estado">Estado: </label>
-                        <select id="estado" required>
+                        <select name="estado" id="estado" required>
                             <option value="">...</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
@@ -89,9 +89,9 @@
                         </select>
                     </div>
                     <label for="setor">Setor: </label>
-                    <input name="f_setor" id="setor" type="text" required placeholder="Insira seu setor">
+                    <input name="setor" id="setor" type="text" required placeholder="Insira seu setor">
                     <label for="complemento">Complemento: </label>
-                    <input name="f_complemento" id="complemento" type="text" required
+                    <input name="complemento" id="complemento" type="text" required
                         placeholder="Qd., Lt., nº e Apt.(opcional)">
                 </div>
 
@@ -109,7 +109,7 @@
                         <div><label id="cont-1">Contato 1:</label></div>
                         <div class="nome-contato">
                             <label for="nome-2"><b>Nome:</b></label>
-                            <input name="f_nome-2" id="nome-2" type="text" required
+                            <input name="nome-2" id="nome-2" type="text" required
                                 placeholder="Insira o nome do contato">
                         </div>
                         <div class="numero-contato">
@@ -120,7 +120,7 @@
                         </div>
                         <div class="email-contato">
                             <label for="email">Email: </label>
-                            <input name="f_email-2" id="email-2" type="email" required
+                            <input name="email-2" id="email-2" type="email" required
                                 placeholder="Insira o email do contato">
                         </div>
                         <div id="div-referencia-pra-add-contatos"></div>
@@ -137,11 +137,11 @@
                     </div>
                     <div class="email">
                         <label for="email"><b>Email: <b></label>
-                        <input name="f_email" id="email" type="email" required placeholder="Insira seu email">
+                        <input name="email" id="email" type="email" required placeholder="Insira seu email">
                     </div>
                     <div class="senha">
                         <label for="senha">Senha: </label>
-                        <input name="f_senha" id="senha" type="password" required placeholder="Escolha sua senha">
+                        <input name="senha" id="senha" type="password" required placeholder="Escolha sua senha">
                     </div>
                     <!-- <buttom id="mostrar" type="buttom">Exibir dados</buttom> -->
                     <input id="enviar" type="submit" value="Cadastrar">
@@ -149,23 +149,20 @@
             </div>
         </form>
     </div>
+
+    <!-- Montando a tabela para receber os dados dos formulários -->
     <div id="dados">
+        <div class="container-tabela">
+            <div class="item">Nome</div>
+            <div class="item">Email</div>
+            <div class="item">Escolaridade</div>
+            <div class="item">Ações</div>
+        </div>
+        <div id="tabela-dados">
 
-    </div>
-    <!-- <table>
-        <thead>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Escolaridade</th>
-            <th>Ações</th>
-        </thead>
-        <tbody>
-            <tr>
-         <td id="dados"></td>
-            </tr>
-        </tbody>
-    </table> -->
-
-    </div>
+        </div>
+      </div>
     <script src="meujava.js"></script>
+    <script src="tabela-function.js"></script>
+    <script> src = "https://unpkg.com/boxicons@2.1.2/dist/boxicons.js" </script>
 </body>

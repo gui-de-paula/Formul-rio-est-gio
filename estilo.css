@@ -2,7 +2,7 @@
 	font-size: 30px;
 	color: white;
 	background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
-	position: sticky;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 700px;
@@ -12,6 +12,7 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin-left: 0px;
+	margin-top: 0;
 	margin-right: auto;
 	margin-bottom: 5px;
 	width: 100%;
@@ -32,6 +33,7 @@
 	grid-template-columns: auto;
 	grid-auto-rows: 20px;
 	margin-left: 30%;
+	margin-top: 50px;
 	padding-bottom: 40px;
 	grid-template-areas:
 		'info-pessoais'
@@ -40,7 +42,7 @@
 		'contatos';
 }
 
-.formulario {
+#formulario {
 	text-align: left;
 }
 
@@ -164,6 +166,7 @@
 .botoes{
 	margin-top: 10px;
 	margin-bottom:10px;
+	margin-left: 40px;
 }
 
 #add-contato {

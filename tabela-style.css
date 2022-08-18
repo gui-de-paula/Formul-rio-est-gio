@@ -1,0 +1,32 @@
+ /* Estilizando a tabela com os dados:  */
+ .container-tabela {
+    margin-left: 200px;
+    display: grid;
+	width: 60rem;
+	color: rgb(236, 227, 227);
+    grid-auto-flow: column;
+    grid-template-columns: 1fr,1fr,1fr,1fr;
+    
+}
+/* Flex Item */
+.item {
+    border:1px solid rgb(255, 255, 255);
+    border-radius: 3px;
+	margin-bottom: 5px;
+    margin-top: 5px;
+	background: rgb(61, 59, 145);
+	text-align: center;
+	font-size: 1.5em;
+}
+
+h1 {
+	text-align: center;
+	margin: 20px 0 0 0;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+* {
+	box-sizing: border-box;
+	margin: 0rem;
+	font-family: Helvetica, sans-serif;
+}
