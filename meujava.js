@@ -59,26 +59,26 @@ function validarCPF(el) {
 //  }
 
 //Adicionar Contatos
-let quantidadeDeContatos = 1;
+let quantDeContatos = 1;
 const adicionarContatoBtn = document.getElementById("add-contato");
 const contato1 = document.getElementById("contato-1");
 
 function criarContato() {
-   quantidadeDeContatos++;
+   quantDeContatos++;
    let contatoAserAdicionado = document.createElement("div");
-   contatoAserAdicionado.setAttribute("id", `contato-${quantidadeDeContatos}`);
-   const node = `<p id="${quantidadeDeContatos}°contato" class="nth-contato">Contato ${quantidadeDeContatos}:</p>
+   contatoAserAdicionado.setAttribute("id", `contato-${quantDeContatos}`);
+   const node = `<p id="${quantDeContatos}°contato" class="nth-contato">Contato ${quantDeContatos}:</p>
   <div class="contato-nome-container flexbox">
     <label for="contato-nome" class="padding-left-1rem">Nome</label>
-    <input type="text" name="contato-nome${quantidadeDeContatos}" id="contato-nome" required />
+    <input type="text" name="contato-nome${quantDeContatos}" id="contato-nome" required />
     </div>
   <div class="contato-telefone-container flexbox">
   <label for="contato-telefone" class="padding-left-1rem">Telefone</label>
-    <input type="tel" name="contato-telefone${quantidadeDeContatos}" id="num-contato" required/>
+    <input type="tel" name="contato-telefone${quantDeContatos}" id="num-contato" required/>
   </div>
   <div class="contato-email-container flexbox">
     <label for="contato-email" class="padding-left-1rem">E-mail</label>
-    <input type="email" name="contato-email${quantidadeDeContatos}" id="contato-email" required />
+    <input type="email" name="contato-email${quantDeContatos}" id="contato-email" required />
   </div>
   `;
    contatoAserAdicionado.innerHTML = node;
@@ -94,12 +94,12 @@ adicionarContatoBtn.addEventListener("click", function () {
 const removerContatoBtn = document.getElementById("remove-contato");
 
 function removerContato() {
-   if (quantidadeDeContatos > 1) {
+   if (quantDeContatos > 1) {
       const contatoAserRemovido = document.getElementById(
-         `contato-${quantidadeDeContatos}`
+         `contato-${quantDeContatos}`
       );
       contatoAserRemovido.parentNode.removeChild(contatoAserRemovido);
-      quantidadeDeContatos--;
+      quantDeContatos--;
    }
 }
 removerContatoBtn.addEventListener("click", function () {
