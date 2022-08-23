@@ -12,7 +12,7 @@ const enviar= document.getElementById('enviar');
         let formData= new FormData(document.getElementById('formulario'))
         // let cadastro = new Object();
         
-         dadosArray[quanFormEnviados]= {
+         dadosArray[quantFormEnviados]= {
             nome: formData.get("nome"),
             cpf: formData.get("cpf"),
             data: formData.get("data"),
@@ -29,42 +29,42 @@ const enviar= document.getElementById('enviar');
             email: formData.get("email"),
             senha: formData.get("senha")
         };
-        console.log(dadosArray[0].nome) 
+        console.log(dadosArray[0].cpf) 
     }
-    for (let i = 1; i <= quantDeContatos; i++) {
-        dadosArray[quantFormEnviados][`nomeContato${i}`] = formData.get(`contato-nome${i}`);
-        dadosArray[quantFormEnviados][`telefoneContato${i}`] = formData.get(
-          `contato-telefone${i}`
-        );
-        dadosDoFormularioObj[quantidadeDeFormulariosEnviados][`emailContato${i}`] = formData.get(`contato-email${i}`);
+    for (; j <= quantDeContatos;j++) {
+      dadosArray[quantFormEnviados][`nomeContato${j}`] = formData.get(`contato-nome${j}`);
+      dadosArray[quantFormEnviados][`telefoneContato${j}`] = formData.get(
+        `contato-telefone${j}`
+      );
+      dadosArray[quantFormEnviados][`emailContato${j}`] = formData.get(`contato-email${j}`);
+    }
+    dadosArray[quantFormEnviados].ContatosNoForm = j - 1;
+    quantFormEnviados++;
+
+   
+    form.reset();
+    if (quantDeContatos > 1) {
+      for (let i = 2; i <= quantDeContatos; i++) {
+        let removerCont = document.getElementById(`contato-${i}`);
+        removerCont.remove();
       }
-      quantFormEnviados++;
+      quantDeContatos = 1;
+    }
+
+    addNaTabela();
+
+    let BotaoExcluir = document.querySelectorAll('.excluir');
+    for (let i = 0; i < BotaoExcluir.length; i++) {
+      BotaoExcluir[i].addEventListener('click', function () {
+        let remover = document.querySelectorAll(`.ref${BotaoExcluir[i].id}`);
+        remover[0].remove();
+        remover[1].remove();
+        remover[2].remove();
+        remover[3].remove();
+        dadosArray[BotaoExcluir[i].id - 1].pop;
+      });
+    
+
+
+
   
-      //resetando o formulário pra que um novo seja preenchido
-      form.reset();
-  
-});
-
-
-
-    
-//     class tabela{
-//         constructor(){
-
-//         } 
-//         let tabela= new tabela()
-//         listatabela(){
-//             let tbody= document.getElementById('tbody');
-//              let tr= tbody.insertRow();
-    
-//              let td_nome = tr.insertCell();
-//              let td_email = tr.insertCell();
-//              let td_escolaridade = tr.insertCell();
-//              let td_acoes = tr.insertCell();
-    
-//         }
-
-//     }
-//  })
-
-// }
