@@ -107,10 +107,10 @@ removerContatoBtn.addEventListener("click", function () {
 })
 
 
- 
+
 // const dadosTabela= document.getElementById("mostrar");
 // function exibir() {
-//    let elementoFilho = document.querySelector("numero-contato").children        
+//    let elementoFilho = document.querySelector("numero-contato").children
 //     document.querySelector("#dados").innerHTML = `
 //        <h2>Dados: </h2>
 //         <p> O segundo elemento filho é: ${elementoFilho[1].tagName}
