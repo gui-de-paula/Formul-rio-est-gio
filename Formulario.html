@@ -17,6 +17,7 @@
                     <div class="linha">
                         <label><b>Informações pessoais <b><label>
                     </div>
+                    <input hidden id="identificador" value="">
                     <div class="name">
                         <label for="nome"><b>Nome: <b></label>
                         <input id="nome" name="nome" type="text" placeholder="Insira seu nome completo">
@@ -149,16 +150,7 @@
 
     <!-- Montando a tabela para receber os dados dos formulários -->
     <div class="tabela">
-        <table>
-            <thead>
-                <th class="center">Nome</th>
-                <th>Email</th>
-                <th>Escolaridade</th>
-                <th class="center">Ações</th>
-            </thead>
-            <tbody id="tbody">
-                
-             </tbody>
+        <table id="tabela">
         </table>
     </div>
     <!-- <div id="dados">
@@ -178,4 +170,5 @@
     <script src="meujava.js"></script>
     <script src="tabela.js"></script>
     <script> src = "https://unpkg.com/boxicons@2.1.2/dist/boxicons.js" </script>
+    <script type="text/javascript" src="jquery.js"></script>
 </body>
