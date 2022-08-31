@@ -1,3 +1,33 @@
+// function valorInvalido(campo) {
+//    campo.style.cssText = 'background-color: #FEC7B3;' + 'border: 1px solid #B30C00;'
+ 
+//  }
+ 
+//  function valorValido(campo) {
+//    campo.style.cssText = 'background-color: #BCFFBA;' + 'border: 1px solid #73B370;'
+ 
+//  }
+ 
+function _email(email) {
+   email= document.getElementById('email');
+   let mask = /\S+@\S*\.\S*/;
+   if (mask.test(email.value)) {
+   //   valorValido(email)
+     return true;
+   } else {
+   //   valorInvalido(email);
+     return false;
+   }
+}
+function validaEmail(e){
+   if(_email == false){
+      alert("Email inválido! \n erro: " + e.value);
+
+      // apaga o valor
+      e.value = "";
+   }
+   
+}
 function _cpf(cpf) {
    cpf = cpf.replace(/[^\d]+/g, '');
    if (cpf == '') return false;

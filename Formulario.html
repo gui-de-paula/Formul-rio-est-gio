@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+    <script src="https://kit.fontawesome.com/174a2aca2f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="tabela-style.css">
     <meta charset="UTF-8">
@@ -20,7 +21,7 @@
                     <input hidden id="identificador" value="">
                     <div class="name">
                         <label for="nome"><b>Nome: <b></label>
-                        <input id="nome" name="nome" type="text" placeholder="Insira seu nome completo">
+                        <input id="nome" name="nome" type="text" onblur="validaEmail(this)" placeholder="Insira seu nome completo">
                     </div>
                     <div class="cpf">
                         <label for="cpf"><b>CPF: <b></label>
@@ -149,7 +150,7 @@
     </div>
 
     <!-- Montando a tabela para receber os dados dos formulários -->
-    <div class="tabela">
+    <div class="table">
         <table id="tabela">
         </table>
     </div>
