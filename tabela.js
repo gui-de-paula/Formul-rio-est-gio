@@ -1,10 +1,9 @@
 let quantFormEnviados = 0;
-var dadosArray = [];
 var arrayCadastro =[];
 let quantFormTabela = 0;
 var tabela= document.getElementById('tabela');
 const cadastrar= document.getElementById("enviar");
-const divContato = document.querySelector(".nth-contato");
+const divContato = document.querySelector(".contato-filho");
 const Id = document.getElementById('identificador');
 const nome = document.getElementById('nome');
 const cpf = document.getElementById('cpf');
@@ -24,6 +23,7 @@ const senha = document.getElementById('senha');
 const mascaraCpf = /(\d{3})\.(\d{3})\.(\d{3})-(\d{2})/;
 let id=0;
 let dadosOriginal;
+let quantDeContatos=0;
 cadastrar.addEventListener("click",salvaForm);
 
   function resetar(){
@@ -38,26 +38,139 @@ cadastrar.addEventListener("click",salvaForm);
     complemento.value="";
     senha.value="";
     email.value="";
-    if (quantDeContatos > 1) {
-      for (let i = 2; i <= quantDeContatos; i++) {
-        let removerContato = document.getElementById(`contato-${i}`);
-        removerContato.remove();
-      }
-      quantDeContatos = 1;
+     
+    let nomeCont;
+    let emailCont;
+    let numeroCont;
+
+    for(let i = 0; i <= contadorContatos; i++){
+
+      nomeCont = document.querySelector(`#nomeContato${i}`);
+      emailCont = document.querySelector(`#emailContato${i}`);
+      numeroCont = document.querySelector(`#telefoneContato${i}`);
+  
+      nomeCont.value = "";
+      emailCont.value = "";
+      numeroCont.value = "";
     }
+  
+    divContato.innerHTML = "";
+
+    complemento.value = "";
+    nome.style.cssText = "border: 1px solid #000;' + 'background-color:#000";
+    email.style.cssText = "border: 1px solid #000;' + 'background-color: #000";
+    cpf.style.cssText = "border: 1px solid #000;' + 'background-color: #000";
   }
 
+
+  function addContato(){
+      let divFilho = document.createElement("div");
+      divContato.appendChild(divFilho);
+    
+      divFilho.setAttribute("class", "contatos-filhos")
+
+      let nomeContato = document.createElement("input");
+      let telefoneContato = document.createElement("input");
+      let emailContato = document.createElement("input");
+      let divBotoes = document.createElement("div");
+      let Aux = quantDeContatos + 1;
+    
+      divFilho.appendChild(nomeContato);
+      divFilho.appendChild(telefoneContato);
+      divFilho.appendChild(emailContato);
+      divFilho.appendChild(divBotoes);
+    
+      divFilho.setAttribute("id", `contato${quantDeContatos+1}`)
+    
+      divBotoes.setAttribute("class", "botaoCont");
+    
+      divBotoes.innerHTML = "<button class='botao-contato' type='button' onclick='removeContato(" + Aux + ")'>Deletar Campo</button>"
+    
+      nomeContato.setAttribute("placeholder", "Insira o nome do contato");
+      nomeContato.setAttribute("id", `nomeContato${quantDeContatos+1}`);
+      nomeContato.setAttribute("required", "true");
+    
+    
+      telefoneContato.setAttribute("placeholder", "Insira o telefone  com ddd");
+      telefoneContato.setAttribute("id", `telefoneContato${quantDeContatos+1}`);
+      telefoneContato.setAttribute("required", "true");
+      telefoneContato.setAttribute("class", "tell");
+    
+      emailContato.setAttribute("placeholder", "Insira o e-mail do contato");
+      emailContato.setAttribute("id", `emailContato${quantDeContatos+1}`);
+      emailContato.setAttribute("required", "true");
+    
+      quantDeContatos++;
+    }
+    
+    function mostrarContatos(id){
+    
+      let dadosArray = [];
+      for(let i = 0; i < arrayCadastro.length; i++){
+        dadosArray[i] = JSON.parse(arrayCadastro[i])
+      }
+    
+      for(let i = 0; i < arrayCadastro.length; i++){
+        if(dadosArray[i].id == id){
+          quantDeContatos = dadosArray[i].contatos;
+          for(let j = 0; j <= dadosArray[i].contatos; j++){
+            if(j==0){
+              const nomeContato = document.getElementById(`nomeContato1`);
+              const numeroContato = document.getElementById('numeroContato1');
+              const emailContato = document.getElementById('emailContato1');
+    
+              nomeContato.value = dadosArray[i].contato1.nome;
+              numeroContato.value = dadosArray[i].contato1.numero;
+              emailContato.value = dadosArray[i].contato1.email;
+            }else {
+              let divFilho = document.createElement("div");
+              divContato.appendChild(divFilho);
+    
+              divFilho.setAttribute("class", "contatos-child")
+              let nomeContato = document.createElement("input");
+              let numContato = document.createElement("input");
+              let emailContato = document.createElement("input");
+    
+              divFilho.appendChild(nomeContato);
+              divFilho.appendChild(numContato);
+              divFilho.appendChild(emailContato);
+    
+              divFilho.setAttribute("id", `contato${quantDeContatos+1}`)
+    
+              nomeContato.setAttribute("placeholder", "Insira o nome do contato");
+              nomeContato.setAttribute("id", `nomeContato${j}`);
+              nomeContato.setAttribute("required", "true");
+    
+              numContato.setAttribute("placeholder", "Insira o telefone  com ddd");
+              numContato.setAttribute("id", `numeroContato${j}`);
+              numContato.setAttribute("required", "true");
+              numContato.setAttribute("class", "tell");
+    
+              emailContato.setAttribute("placeholder", "Insira o e-mail do contato");
+              emailContato.setAttribute("id", `emailContato${j}`);
+              emailContato.setAttribute("required", "true");
+    
+              nomeContato.value = dadosArray[i][`contato${j}`].nome;
+              numContato.value = dadosArray[i][`contato${j}`].numero;
+              emailContato.value = dadosArray[i][`contato${j}`].email;
+    
+            }
+          }
+        }
+      }
+     }    
+
   function salvaForm(e){
-    e.preventDefault(e);
-    if (quantDeContatos >=2) {
+    
+    if (quantDeContatos >=1) {
      
     let dados;
     let contato;
     let json;
-    let nomeContato;
-    let emailContato;
-    let numeroContato;
-    let jsonContato;
+    let contNome;
+    let contEmail;
+    let contNumero;
+    // let jsonContato;
 
     dados={
       Nome:nome.value,
@@ -68,23 +181,20 @@ cadastrar.addEventListener("click",salvaForm);
       Setor:setor.value,
       Complemento:complemento.value,
       Numero: numero.value,
-      Nome2: nome2.value,
-      Email2: email2.value,
-      Numero2: numero2.value,
       Email:email.value,
       Senha:senha.value,
       id:id,
       Contatos:quantDeContatos
     }
     for(let j=0; j<= quantDeContatos;j++){
-      nomeContato= document.getElementById('contato-nome');
-      emailContato= document.getElementById('num-contato');
-      numeroContato= document.getElementById('contato-email');
+      contNome= document.getElementById('contato-nome');
+      contEmail= document.getElementById('num-contato');
+      contNumero= document.getElementById('contato-email');
 
       contato= {
-        nome: nomeContato.value,
-        email: emailContato.value,
-        numero: numeroContato.value
+        nome: contNome.value,
+        email: contEmail.value,
+        numero: contNumero.value
       }
       jsonContato= JSON.stringify(contato);
       dados[`contato${j}`]=contato;
@@ -94,8 +204,10 @@ cadastrar.addEventListener("click",salvaForm);
       dados.Cpf = dados.Cpf.replace(/(\d{3})\.(\d{3})\.(\d{3})-(\d{2})/, '$1$2$3$4');
     }
     json = JSON.stringify(dados);
+
   console.log(typeof json)
-    if (dadosArray.includes(dadosOriginal)){
+
+    if (arrayCadastro.includes(dadosOriginal)){
       editaArray(json);
       mostrarDados();
       dadosOriginal="";
@@ -106,35 +218,37 @@ cadastrar.addEventListener("click",salvaForm);
         dados.Cpf = dados.Cpf.replace(/(\d{3})\.(\d{3})\.(\d{3})-(\d{2})/, '$1$2$3$4');
       }
       let jsonDadosNovos=JSON.stringify(dados);
-      dadosArray.push(jsonDadosNovos);
+      arrayCadastro.push(jsonDadosNovos);
       id++
       mostrarDados();
     }
    resetar();
-  console.log(dados);
+  console.log(arrayCadastro);
   quantDeContatos=0;
-}else{
+}
+else{
   alert("Insira no minimo 2 contatos");
 }
 dadosOriginal="";
 quantDeContatos=0;
+e.preventDefault(e);
 
 }
   function mostrarDados(){
     let dadosArray=[];
-    for(let i=0; i<dados.length;i++){
-      dadosArray[i]=JSON.parse(dados[i])
+    for(let i=0; i<arrayCadastro.length;i++){
+      dadosArray[i]=JSON.parse(arrayCadastro[i])
     }
     tabela.innerHTML="";
     let tHead= document.createElement("tr");
 
     tabela.appendChild(tHead);
 
-    let colunaNome= document.createElement("th");
-    let colunaEmail= document.createElement("th");
-    let colunaEscolaridade= document.createElement("th");
-    let colunaEdita= document.createElement("th");
-    let colunaExclui= document.createElement("th");
+    let tituloNome= document.createElement("th");
+    let tituloEmail= document.createElement("th");
+    let tituloEscolaridade= document.createElement("th");
+    let tituloEdita= document.createElement("th");
+    let tituloExclui= document.createElement("th");
 
     tHead.appendChild(tituloNome);
     tHead.appendChild(tituloEmail);
@@ -176,8 +290,8 @@ quantDeContatos=0;
   function editaDados(id){
     let dadosArray= [];
     let dados;
-    for(let j=0;j<dados.length;j++){
-      dadosArray[j]=JSON.parse(dados[j])
+    for(let j=0;j<arrayCadastro.length;j++){
+      dadosArray[j]=JSON.parse(arrayCadastro[j])
     }
     for(let i=0;i<dadosArray.length;i++){
       if(dadosArray[i].id==id){
@@ -199,34 +313,39 @@ quantDeContatos=0;
         email.value = dados.Email;
         senha.value = dados.Senha;
 
-        criarContato(id);
+        mostrarContatos(id);
       }
     }
     let json= JSON.stringify(dados);
     dadosOriginal=json;
   }
   function editaArray(s){
-    let index = dados.indexOf(dadosOriginal);
-    dados.splice(index,1, s);
+    let index = arrayCadastro.indexOf(dadosOriginal);
+    arrayCadastro.splice(index,1, s);
     }
 
   function excluiDados(id){
     let dadosArray=[];
     
-    for(let j=0;j<dados.length;j++){
-      dadosArray[j]= JSON.parse(dados[j])
+    for(let j=0;j<arrayCadastro.length;j++){
+      dadosArray[j]= JSON.parse(arrayCadastro[j])
     }
     for(let i=0;i<dadosArray.length;i++){
       if(id == dadosArray[i].id){
-        dados.splice(i,1);
+        arrayCadastro.splice(i,1);
         tabela.deletRow(i+1);
       }
     }
-    if(dados.length ===0){
+    if(arrayCadastro.length ===0){
       tabela.deletRow(0);
     }
   }
-
+  function removeContato(cont) {
+    let contRemovido = document.querySelector(`#contato${cont}`);
+    contRemovido.remove();
+    quantDeContatos--;
+  }
+  
 
 //   let botaoExcluir = document.querySelectorAll('.excluir');
 //   let botaoEditar = document.querySelectorAll('.editar');

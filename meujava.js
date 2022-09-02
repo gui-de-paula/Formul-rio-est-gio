@@ -69,72 +69,54 @@ function validarCPF(el) {
       el.value = "";
    }
 }
-//  function print(){
-//   let fm= document.forms[0];
-//   let a,b,c,d,e,f,g,h,i,j,k,l;
-//   a=fm.elements[0].value;
-//   b=fm.elements[1].value;
-//   c= fm.elements[2].value;
-//   d= fm.elements[3].value;
-//   e= fm.elements[4].value;
-//   f= fm.elements[5].value;
-//   g= fm.elements[6].value;
-//   h= fm.elements[7].value;
-//   i= fm.elements[8].value;
-//   j= fm.elements[9].value;
-//   k= fm.elements[10].value;
-//   l= fm.elements[11].value;
 
-//    document.write("Dados:"+a+"\n"+b+"\n"+c+"\n"+d+"\n"+e+"\n"+f+"\n"+g+"\n"+h+"\n"+i+"\n"+j+"\n"+k+"\n"+l);
-//  }
+// //Adicionar Contatos
+// let quantDeContatos = 1;
+// const adicionarContatoBtn = document.getElementById("add-contato");
+// const contato1 = document.getElementById("contato-1");
 
-//Adicionar Contatos
-let quantDeContatos = 1;
-const adicionarContatoBtn = document.getElementById("add-contato");
-const contato1 = document.getElementById("contato-1");
+// function criarContato() {
+//    quantDeContatos++;
+//    let contatoAserAdicionado = document.createElement("div");
+//    contatoAserAdicionado.setAttribute("id", `contato-${quantDeContatos}`);
+//    const node = `<p id="${quantDeContatos}°contato" class="nth-contato">Contato ${quantDeContatos}:</p>
+//   <div class="contato-nome-container flexbox">
+//     <label for="contato-nome" class="padding-left-1rem">Nome</label>
+//     <input type="text" name="contato-nome${quantDeContatos}" id="contato-nome" required />
+//     </div>
+//   <div class="contato-telefone-container flexbox">
+//   <label for="contato-telefone" class="padding-left-1rem">Telefone</label>
+//     <input type="tel" name="contato-telefone${quantDeContatos}" id="num-contato" required/>
+//   </div>
+//   <div class="contato-email-container flexbox">
+//     <label for="contato-email" class="padding-left-1rem">E-mail</label>
+//     <input type="email" name="contato-email${quantDeContatos}" id="contato-email" required />
+//   </div>
+//   `;
+//    contatoAserAdicionado.innerHTML = node;
 
-function criarContato() {
-   quantDeContatos++;
-   let contatoAserAdicionado = document.createElement("div");
-   contatoAserAdicionado.setAttribute("id", `contato-${quantDeContatos}`);
-   const node = `<p id="${quantDeContatos}°contato" class="nth-contato">Contato ${quantDeContatos}:</p>
-  <div class="contato-nome-container flexbox">
-    <label for="contato-nome" class="padding-left-1rem">Nome</label>
-    <input type="text" name="contato-nome${quantDeContatos}" id="contato-nome" required />
-    </div>
-  <div class="contato-telefone-container flexbox">
-  <label for="contato-telefone" class="padding-left-1rem">Telefone</label>
-    <input type="tel" name="contato-telefone${quantDeContatos}" id="num-contato" required/>
-  </div>
-  <div class="contato-email-container flexbox">
-    <label for="contato-email" class="padding-left-1rem">E-mail</label>
-    <input type="email" name="contato-email${quantDeContatos}" id="contato-email" required />
-  </div>
-  `;
-   contatoAserAdicionado.innerHTML = node;
+//    return contatoAserAdicionado;
+// }
 
-   return contatoAserAdicionado;
-}
+// adicionarContatoBtn.addEventListener("click", function () {
+//    document.getElementById("div-referencia-pra-add-contatos").before(criarContato());
+// });
 
-adicionarContatoBtn.addEventListener("click", function () {
-   document.getElementById("div-referencia-pra-add-contatos").before(criarContato());
-});
+// //removerContatos
+// const removerContatoBtn = document.getElementById("remove-contato");
 
-//removerContatos
-const removerContatoBtn = document.getElementById("remove-contato");
-
-function removerContato() {
-   if (quantDeContatos > 1) {
-      const contatoAserRemovido = document.getElementById(
-         `contato-${quantDeContatos}`
-      );
-      contatoAserRemovido.parentNode.removeChild(contatoAserRemovido);
-      quantDeContatos--;
-   }
-}
-removerContatoBtn.addEventListener("click", function () {
-   removerContato();
-})
+// function removerContato() {
+//    if (quantDeContatos > 1) {
+//       const contatoAserRemovido = document.getElementById(
+//          `contato-${quantDeContatos}`
+//       );
+//       contatoAserRemovido.parentNode.removeChild(contatoAserRemovido);
+//       quantDeContatos--;
+//    }
+// }
+// removerContatoBtn.addEventListener("click", function () {
+//    removerContato();
+// })
 
 
 

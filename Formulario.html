@@ -106,27 +106,20 @@
                             pattern="^1\d\d(\d\d)?$|^0800 ?\d{3} ?\d{4}$|^(\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d[ .-]?)?(9|9[ .-])?[2-9]\d{3}[ .-]?\d{4}$"
                             placeholder="Insira seu contato">
                     </div>
-                    <div class="contato-1">
-                        <div><label id="cont-1">Contato 1:</label></div>
-                        <div class="nome-contato">
-                            <label for="nome-2"><b>Nome:</b></label>
-                            <input name="nome-2" id="nome-2" type="text" placeholder="Insira o nome do contato">
-                        </div>
-                        <div class="numero-contato">
-                            <label for="num-2">Numero: </label>
-                            <input name="num-2" id="num-2"
-                                pattern="^1\d\d(\d\d)?$|^0800 ?\d{3} ?\d{4}$|^(\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d[ .-]?)?(9|9[ .-])?[2-9]\d{3}[ .-]?\d{4}$"
-                                type="text" placeholder="Insira seu contato">
-                        </div>
-                        <div class="email-contato">
-                            <label for="email">Email: </label>
-                            <input name="email-2" id="email-2" type="email" placeholder="Insira o email do contato">
-                        </div>
-                        <div id="div-referencia-pra-add-contatos"></div>
-                        <div class="botoes">
-                            <buttom type="buttom" id="add-contato">Adicionar contato</buttom>
-                            <buttom type="buttom" id="remove-contato">Remover contato</buttom>
-                        </div>
+                   
+                    <div class="contato" id="contato-1">
+                        <input type="text" name="name" placeholder="Insira o Nome do Contato" id="nomeContato1">
+                        <input type="email" name="email" placeholder="Insira o E-mail alternativo" id="emailContato1">
+                        <input type="tel" name="numContato1" placeholder="Insira o telefone do contato" id="numeroContato1" class="tell">
+                      </div>
+                      <div class="contato-filho" id="contato-filhos">
+                    </div>
+                    <div class="botaoCont">
+                      <button class="botao-contato" type="button" onclick="addContato()">
+                        <i class="fa-solid fa-plus"></i>
+                        Adicionar Contato
+                      </button>
+                    </div>
                     </div>
                 </div>
 
