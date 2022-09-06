@@ -1,13 +1,4 @@
-// function valorInvalido(campo) {
-//    campo.style.cssText = 'background-color: #FEC7B3;' + 'border: 1px solid #B30C00;'
- 
-//  }
- 
-//  function valorValido(campo) {
-//    campo.style.cssText = 'background-color: #BCFFBA;' + 'border: 1px solid #73B370;'
- 
-//  }
- 
+
 function _email(email) {
    email= document.getElementById('email');
    let mask = /\S+@\S*\.\S*/;
@@ -69,66 +60,3 @@ function validarCPF(el) {
       el.value = "";
    }
 }
-
-// //Adicionar Contatos
-// let quantDeContatos = 1;
-// const adicionarContatoBtn = document.getElementById("add-contato");
-// const contato1 = document.getElementById("contato-1");
-
-// function criarContato() {
-//    quantDeContatos++;
-//    let contatoAserAdicionado = document.createElement("div");
-//    contatoAserAdicionado.setAttribute("id", `contato-${quantDeContatos}`);
-//    const node = `<p id="${quantDeContatos}°contato" class="nth-contato">Contato ${quantDeContatos}:</p>
-//   <div class="contato-nome-container flexbox">
-//     <label for="contato-nome" class="padding-left-1rem">Nome</label>
-//     <input type="text" name="contato-nome${quantDeContatos}" id="contato-nome" required />
-//     </div>
-//   <div class="contato-telefone-container flexbox">
-//   <label for="contato-telefone" class="padding-left-1rem">Telefone</label>
-//     <input type="tel" name="contato-telefone${quantDeContatos}" id="num-contato" required/>
-//   </div>
-//   <div class="contato-email-container flexbox">
-//     <label for="contato-email" class="padding-left-1rem">E-mail</label>
-//     <input type="email" name="contato-email${quantDeContatos}" id="contato-email" required />
-//   </div>
-//   `;
-//    contatoAserAdicionado.innerHTML = node;
-
-//    return contatoAserAdicionado;
-// }
-
-// adicionarContatoBtn.addEventListener("click", function () {
-//    document.getElementById("div-referencia-pra-add-contatos").before(criarContato());
-// });
-
-// //removerContatos
-// const removerContatoBtn = document.getElementById("remove-contato");
-
-// function removerContato() {
-//    if (quantDeContatos > 1) {
-//       const contatoAserRemovido = document.getElementById(
-//          `contato-${quantDeContatos}`
-//       );
-//       contatoAserRemovido.parentNode.removeChild(contatoAserRemovido);
-//       quantDeContatos--;
-//    }
-// }
-// removerContatoBtn.addEventListener("click", function () {
-//    removerContato();
-// })
-
-
-
-// const dadosTabela= document.getElementById("mostrar");
-// function exibir() {
-//    let elementoFilho = document.querySelector("numero-contato").children
-//     document.querySelector("#dados").innerHTML = `
-//        <h2>Dados: </h2>
-//         <p> O segundo elemento filho é: ${elementoFilho[1].tagName}
-//         <p> O conteúdo do segundo elemento filho é: ${elementoFilho[1].innerHTML}`
-// }
-// dadosTabela.addEventListener("click",function () {
-//    exibir();})
-
-
