@@ -40,7 +40,7 @@ salvar.addEventListener("submit",salvaForm)
     email.value="";
      
 
-    for(let i = 0; i <quantDeContatos; i++){
+    for(let i = 0; i <=quantDeContatos; i++){
 
       contatoNome = document.querySelector(`#nomeContato${i}`);
       contatoEmail = document.querySelector(`#emailContato${i}`);
@@ -60,45 +60,7 @@ salvar.addEventListener("submit",salvaForm)
   }
 
 
-  function addContato(){
-      let divFilho = document.createElement("div");
-      divContato.appendChild(divFilho);
-    
-      divFilho.setAttribute("class", "contatos-filhos")
-
-      let nomeContato = document.createElement("input");
-      let telefoneContato = document.createElement("input");
-      let emailContato = document.createElement("input");
-      let divBotoes = document.createElement("div");
-      let Aux = quantDeContatos + 1;
-    
-      divFilho.appendChild(nomeContato);
-      divFilho.appendChild(telefoneContato);
-      divFilho.appendChild(emailContato);
-      divFilho.appendChild(divBotoes);
-    
-      divFilho.setAttribute("id", `contato${quantDeContatos+1}`)
-    
-      divBotoes.setAttribute("class", "botaoCont");
-    
-      divBotoes.innerHTML = "<button class='botao-contato' type='button' onclick='removeContato(" + Aux + ")'>Excluir contato</button>"
-    
-      nomeContato.setAttribute("placeholder", "Insira o nome do contato");
-      nomeContato.setAttribute("id", `nomeContato${quantDeContatos+1}`);
-      nomeContato.setAttribute("required", "true");
-    
-    
-      telefoneContato.setAttribute("placeholder", "Insira o telefone  com ddd");
-      telefoneContato.setAttribute("id", `telefoneContato${quantDeContatos+1}`);
-      telefoneContato.setAttribute("required", "true");
-      telefoneContato.setAttribute("class", "tell");
-    
-      emailContato.setAttribute("placeholder", "Insira o e-mail do contato");
-      emailContato.setAttribute("id", `emailContato${quantDeContatos+1}`);
-      emailContato.setAttribute("required", "true");
-    
-      quantDeContatos++;
-    }
+  
    
     function mostrarContatos(id){
     
@@ -111,8 +73,10 @@ salvar.addEventListener("submit",salvaForm)
         if(dadosArray[i].id == id){
 
           quantDeContatos = dadosArray[i].contatos;
-          for(let j = 0; j <= dadosArray[i].contatos; j++){
+          console.log(quantDeContatos)
+          for(let j = 0; j <=quantDeContatos; j++){
             if(j==0){
+              
               const nomeCont = document.getElementById(`nomeContato0`);
               const numeroCont = document.getElementById('numeroContato0');
               const emailCont = document.getElementById('emailContato0');
@@ -120,7 +84,9 @@ salvar.addEventListener("submit",salvaForm)
               nomeCont.value = dadosArray[i].contato0.nome;
               numeroCont.value = dadosArray[i].contato0.telefone;
               emailCont.value = dadosArray[i].contato0.email;
-            }else {
+            }
+            else {
+              console.log("entrou no else")
               let divFilho = document.createElement("div");
               divContato.appendChild(divFilho);
     
@@ -128,12 +94,18 @@ salvar.addEventListener("submit",salvaForm)
               let nomeContato = document.createElement("input");
               let telefoneContato = document.createElement("input");
               let emailContato = document.createElement("input");
+              let divBotoes = document.createElement("div");
+              let Aux = j ;
     
               divFilho.appendChild(nomeContato);
               divFilho.appendChild(telefoneContato);
               divFilho.appendChild(emailContato);
+              divFilho.appendChild(divBotoes);
     
-              divFilho.setAttribute("id", `contato${quantDeContatos+1}`)
+              divFilho.setAttribute("id", `contato${j}`)
+
+              divBotoes.setAttribute("class", "botaoCont");
+              divBotoes.innerHTML = "<button class='botao-contato' type='button' onclick='removeContato(" + Aux + ")'>Excluir contato</button>"
     
               nomeContato.setAttribute("placeholder", "Insira o nome do contato");
               nomeContato.setAttribute("id", `nomeContato${j}`);
@@ -142,7 +114,7 @@ salvar.addEventListener("submit",salvaForm)
               telefoneContato.setAttribute("placeholder", "Insira o telefone  com ddd");
               telefoneContato.setAttribute("id", `numeroContato${j}`);
               telefoneContato.setAttribute("required", "true");
-              telefoneContato.setAttribute("class", "tell");
+              telefoneContato.setAttribute("class", "tell");  
     
               emailContato.setAttribute("placeholder", "Insira o e-mail do contato");
               emailContato.setAttribute("id", `emailContato${j}`);
@@ -151,6 +123,7 @@ salvar.addEventListener("submit",salvaForm)
               nomeContato.value = dadosArray[i][`contato${j}`].nome;
               telefoneContato.value = dadosArray[i][`contato${j}`].telefone;
               emailContato.value = dadosArray[i][`contato${j}`].email;
+              console.log(nomeContato.value)
               
             }
           }
@@ -159,8 +132,8 @@ salvar.addEventListener("submit",salvaForm)
      }    
 
   function salvaForm(e){
-    console.log(quantDeContatos)
-    e.preventDefault( );      
+    console.log(arrayCadastro)
+    e.preventDefault();      
     if (quantDeContatos >=1) {
 
 
@@ -183,17 +156,15 @@ salvar.addEventListener("submit",salvaForm)
       id:id,
       contatos:quantDeContatos
     }
-    for(let i=0; i< quantDeContatos;i++){
+    for(let i=0; i<=quantDeContatos;i++){
       let  contatoNome= document.querySelector(`#nomeContato${i}`);
       let  contatoNumero= document.querySelector(`#numeroContato${i}`);
       let  contatoEmail= document.querySelector(`#emailContato${i}`);
-
       contato= {
         nome: contatoNome.value,
         telefone: contatoNumero.value,
         email: contatoEmail.value
       }
-      console.log(contatoNumero.value)
       jsonContato= JSON.stringify(contato);
       dados[`contato${i}`]=contato;
     }
@@ -285,6 +256,7 @@ quantDeContatos=0;
   }
   function editaDados(id){
     let dadosArray= [];
+    console.log(arrayCadastro)
     let dados;
     for(let i=0;i<arrayCadastro.length;i++){
       dadosArray[i]=JSON.parse(arrayCadastro[i])
@@ -331,7 +303,7 @@ quantDeContatos=0;
     }
     if(arrayCadastro.length ==0){
       tabela.deleteRow(0);
-    }
+    } 
   }
   function removeContato(cont) {
     let contRemovido = document.querySelector(`#contato${cont}`);

@@ -60,3 +60,42 @@ function validarCPF(el) {
       el.value = "";
    }
 }
+function addContato(){
+   let divFilho = document.createElement("div");
+   divContato.appendChild(divFilho);
+ 
+   divFilho.setAttribute("class", "contatos-filhos")
+
+   let nomeContato = document.createElement("input");
+   let telefoneContato = document.createElement("input");
+   let emailContato = document.createElement("input");
+   let divBotoes = document.createElement("div");
+   let Aux = quantDeContatos + 1;
+ 
+   divFilho.appendChild(nomeContato);
+   divFilho.appendChild(telefoneContato);
+   divFilho.appendChild(emailContato);
+   divFilho.appendChild(divBotoes);
+ 
+   divFilho.setAttribute("id", `contato${quantDeContatos+1}`)
+ 
+   divBotoes.setAttribute("class", "botaoCont");
+ 
+   divBotoes.innerHTML = "<button class='botao-contato' type='button' onclick='removeContato(" + Aux + ")'>Excluir contato</button>"
+ 
+   nomeContato.setAttribute("placeholder", "Insira o nome do contato");
+   nomeContato.setAttribute("id", `nomeContato${quantDeContatos+1}`);
+   nomeContato.setAttribute("required", "true");
+ 
+ 
+   telefoneContato.setAttribute("placeholder", "Insira o telefone  com ddd");
+   telefoneContato.setAttribute("id", `numeroContato${quantDeContatos+1}`);
+   telefoneContato.setAttribute("required", "true");
+   telefoneContato.setAttribute("class", "tell");
+ 
+   emailContato.setAttribute("placeholder", "Insira o e-mail do contato");
+   emailContato.setAttribute("id", `emailContato${quantDeContatos+1}`);
+   emailContato.setAttribute("required", "true");
+ 
+   quantDeContatos++;
+ }

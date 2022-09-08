@@ -13,13 +13,13 @@
  	margin-top: 5px;
  	margin-right: 80px;
 	 margin-left: 110px;
- 	background: rgb(75, 72, 236);
+ 	background: rgb(189, 189, 189);
  	text-align: center;
  	font-size: 20px;
 	width: 80%;
  }
 i{
-	color: rgb(207, 207, 207);
+	color: rgb(46, 46, 46);
 	cursor: pointer;
 }
  i:hover{
@@ -30,13 +30,14 @@ th{
  	width: 300px;
  	margin: 10px;
  	color: rgb(255, 255, 255);
-	background-color: rgb(4, 0, 255);
+	background-color: rgb(26, 25, 25);
 }
  td {
- 	border: 1px solid rgb(0, 0, 0);
+ 	border-bottom: 2px solid rgb(0, 0, 0);
+	border-color: rgb(37, 37, 37);
  	width: 300px;
  	margin: 10px;
- 	color: rgb(10, 0, 0);
+ 	color: rgb(22, 22, 22);
  }
 
 .editar {
